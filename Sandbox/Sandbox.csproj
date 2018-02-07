@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>CaptainLib.Sandbox</AssemblyName>
+    <RootNamespace>CaptainLib.Sandbox</RootNamespace>
+    <Authors>Alexander Morgan</Authors>
+    <Company>Alexander Morgan</Company>
+    <Product>CaptainLib.Sandbox</Product>
+    <Copyright>(c) 2018 Alexander Morgan</Copyright>
+    <PackageLicenseUrl>https://github.com/dzoidx/CaptainLib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/dzoidx/CaptainLib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dzoidx/CaptainLib</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Numbers\Numbers.csproj" />
+  </ItemGroup>
+
+</Project>

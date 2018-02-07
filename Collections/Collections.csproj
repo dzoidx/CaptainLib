@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>CaptainLib.Collections</AssemblyName>
+    <RootNamespace>CaptainLib.Collections</RootNamespace>
+    <Authors>Alexander Morgan</Authors>
+    <Company>Alexander Morgan</Company>
+    <Copyright>(c) 2018 Alexander Morgan</Copyright>
+    <PackageLicenseUrl>https://github.com/dzoidx/CaptainLib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/dzoidx/CaptainLib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dzoidx/CaptainLib</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
