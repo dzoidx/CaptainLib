@@ -15,8 +15,7 @@ namespace CaptainLib.Collections
         public Value GetOrCreate(Key k, Func<Value> creator, DateTime expDate)
         {
             Update();
-            MemCacheEntry entry;
-            if (_cache.TryGetValue(k, out entry))
+            if (_cache.TryGetValue(k, out MemCacheEntry entry))
                 return entry.Data;
 
             entry = new MemCacheEntry() { Data = creator(), ExpirationDate = expDate };
@@ -27,11 +26,6 @@ namespace CaptainLib.Collections
 
         public Value GetOrCreate(Key k, Func<Value> creator, TimeSpan? lifeTime = null)
         {
-            Update();
-            MemCacheEntry entry;
-            if (_cache.TryGetValue(k, out entry))
-                return entry.Data;
-
             DateTime expDate;
             if (!lifeTime.HasValue)
                 expDate = DateTime.MaxValue;
