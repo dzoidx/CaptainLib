@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using CaptainLib.Collections;
@@ -8,7 +7,12 @@ namespace CaptainLib.Numbers
 {
     public class SafeRandom
     {
+#if NET45 || NETSTANDARD1_0
         private static ThreadLocal<System.Random> _rnd = new ThreadLocal<System.Random>(() => new System.Random());
+#else
+        private static Random _rnd = new Random();
+        private static object _sync = new object();
+#endif
         private static readonly string _maxDecimal;
 
         static SafeRandom()
@@ -18,17 +22,33 @@ namespace CaptainLib.Numbers
 
         public static int GetInt()
         {
+#if NET45 || NETSTANDARD1_0
             return _rnd.Value.Next();
+#else
+            lock (_sync)
+                return _rnd.Next();
+#endif
         }
 
         public static int GetInt(int max)
         {
+#if NET45 || NETSTANDARD1_0
             return _rnd.Value.Next(max);
+#else
+            lock (_sync)
+                return _rnd.Next(max);
+#endif
+            
         }
 
         public static int GetInt(int min, int max)
         {
+#if NET45 || NETSTANDARD1_0
             return _rnd.Value.Next(min, max);
+#else
+            lock (_sync)
+                return _rnd.Next(min, max);
+#endif
         }
 
         public static bool Test()
@@ -48,12 +68,22 @@ namespace CaptainLib.Numbers
 
         public static float GetFloat()
         {
+#if NET45 || NETSTANDARD1_0
             return (float)_rnd.Value.NextDouble();
+#else
+            lock (_sync)
+                return (float)_rnd.NextDouble();
+#endif
         }
 
         public static void RandomBytes(byte[] buffer)
         {
+#if NET45 || NETSTANDARD1_0
             _rnd.Value.NextBytes(buffer);
+#else
+            lock (_sync)
+                _rnd.NextBytes(buffer);
+#endif
         }
 
         public static decimal GetDecimal(decimal min = decimal.MinValue, decimal max = decimal.MaxValue)
@@ -84,7 +114,12 @@ namespace CaptainLib.Numbers
 
         public static double GetDouble()
         {
+#if NET45 || NETSTANDARD1_0
             return _rnd.Value.NextDouble();
+#else
+            lock (_sync)
+                return _rnd.NextDouble();
+#endif
         }
     }
 }
