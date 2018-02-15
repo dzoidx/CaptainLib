@@ -22,7 +22,7 @@ namespace CaptainLib.Threading
         private Task _task;
 #endif
 
-        public ScopeWorker()
+        protected ScopeWorker()
         {
 #if NET35
             _thread = new Thread(ScopeLoop);
@@ -61,14 +61,17 @@ namespace CaptainLib.Threading
 
         private void ScopeLoop()
         {
+            var start = Stopwatch.GetTimestamp();
             while (!_disposed)
             {
-                var dt = (float)((double)Stopwatch.GetTimestamp() / Stopwatch.Frequency);
+                var curr = Stopwatch.GetTimestamp();
+                var dt = (float)((double)(curr - start) / Stopwatch.Frequency);
 #if NET35
                 Update(dt);
 #else
                 Update(dt, _cancellationTokenSource.Token);
 #endif
+                start = curr;
             }
         }
     }
