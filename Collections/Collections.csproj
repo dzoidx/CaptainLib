@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;net45;net35</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;net45;net35</TargetFrameworks>
     <AssemblyName>CaptainLib.Collections</AssemblyName>
     <RootNamespace>CaptainLib.Collections</RootNamespace>
     <Authors>Alexander Morgan</Authors>
@@ -11,5 +11,9 @@
     <PackageProjectUrl>https://github.com/dzoidx/CaptainLib</PackageProjectUrl>
     <RepositoryUrl>https://github.com/dzoidx/CaptainLib</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
 
 </Project>

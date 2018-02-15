@@ -1,4 +1,4 @@
-﻿namespace Numbers.Numbers
+﻿namespace CaptainLib.Numbers
 {
     public class Range<T>
     {

@@ -9,13 +9,13 @@ namespace Sandbox.Showcases
     {
         public void Start()
         {
-            var d = SafeRandom.GetDecimal(min: 0);
+            var d = SafeRandom.GetDecimal(0, decimal.MaxValue);
             Console.WriteLine(d);
-            d = SafeRandom.GetDecimal(min: 0);
+            d = SafeRandom.GetDecimal(0, decimal.MaxValue);
             Console.WriteLine(d);
-            d = SafeRandom.GetDecimal(min: 0);
+            d = SafeRandom.GetDecimal(0, decimal.MaxValue);
             Console.WriteLine(d);
-            d = SafeRandom.GetDecimal();
+            d = SafeRandom.GetDecimal(decimal.MinValue, decimal.MaxValue);
             Console.WriteLine(d);
         }
     }

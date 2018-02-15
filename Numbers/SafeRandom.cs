@@ -86,7 +86,7 @@ namespace CaptainLib.Numbers
 #endif
         }
 
-        public static decimal GetDecimal(decimal min = decimal.MinValue, decimal max = decimal.MaxValue)
+        public static decimal GetDecimal(decimal min, decimal max)
         {
             if (min >= max)
                 throw new InvalidOperationException($"{min} > {max}");
