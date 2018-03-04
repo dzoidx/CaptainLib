@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;net35;net45</TargetFrameworks>
+    <Authors>Alexander Morgan</Authors>
+    <Copyright>(c) 2018 Alexander Morgan</Copyright>
+    <Company>Alexander Morgan</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseUrl>https://github.com/dzoidx/CaptainLib/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/dzoidx/CaptainLib</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dzoidx/CaptainLib</RepositoryUrl>
+    <Description>Some useful stuff you copy from one project to another</Description>
   </PropertyGroup>
 
 </Project>
