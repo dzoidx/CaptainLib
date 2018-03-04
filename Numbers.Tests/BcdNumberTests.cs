@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CaptainLib.Numbers;
-using System.Collections;
 using System.Linq;
 
 namespace Numbers.Tests

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Text;
-using System.Threading;
 using CaptainLib.Collections;
 
 namespace CaptainLib.Numbers
 {
+    /// <summary>
+    /// The problem:
+    /// - https://blogs.msdn.microsoft.com/pfxteam/2009/02/19/getting-random-numbers-in-a-thread-safe-way/
+    /// </summary>
     public class SafeRandom
     {
 #if NET45 || NETSTANDARD1_0

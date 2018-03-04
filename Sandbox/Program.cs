@@ -26,6 +26,9 @@ namespace Sandbox
 
         static void Main(string[] args)
         {
+            Console.WriteLine("showcase [name]");
+            Console.WriteLine("Available showcases:");
+            ListShowcases();
             do
             {
                 var input = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);

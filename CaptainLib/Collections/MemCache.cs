@@ -37,14 +37,20 @@ namespace CaptainLib.Collections
 
         public bool Invalidate(Key k)
         {
+            if (_cache[k].Data is IDisposable)
+                (_cache[k].Data as IDisposable).Dispose();
             return _cache.Remove(k);
         }
 
         private void Update()
         {
-            var expKeys = _cache.Where(pair => DateTime.UtcNow > pair.Value.ExpirationDate).Select(pair => pair.Key);
+            var expKeys = _cache.Where(pair => DateTime.UtcNow > pair.Value.ExpirationDate)
+                .Select(pair => pair.Key)
+                .ToArray();
             foreach (var expKey in expKeys)
             {
+                if(_cache[expKey].Data is IDisposable)
+                    (_cache[expKey].Data as IDisposable).Dispose();
                 _cache.Remove(expKey);
             }
         }
