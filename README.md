@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/captain-lib/Lobby](https://badges.gitter.im/dzoidx-captain-lib/Lobby.svg)](https://gitter.im/captain-lib/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 # CaptainLib
 Some useful C# stuff you copy from one project to another
 - Common
