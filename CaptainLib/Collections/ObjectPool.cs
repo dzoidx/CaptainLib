@@ -54,12 +54,17 @@ namespace CaptainLib.Collections
         Func<T> _create;
         Func<int, T[]> _createArray;
 
-        public ObjectPool(int poolMaxCapacity, Func<T> create, Func<int, T[]> createArray = null)
+        public ObjectPool(int poolMaxCapacity, Func<T> create, Func<int, T[]> createArray = null, Action<T> remove = null)
         {
             _create = create;
+            remove = remove ?? (o => { });
+            var remove_array = new Action<T[]>(arr =>
+            {
+                foreach (var a in arr) remove(a);
+            });
             _createArray = createArray ?? ((s) => new T[s]);
-            _pool = new LimitedQueue<T>(poolMaxCapacity);
-            _arrayPool = new LimitedList<T[]>(poolMaxCapacity);
+            _pool = new LimitedQueue<T>(poolMaxCapacity, remove);
+            _arrayPool = new LimitedList<T[]>(poolMaxCapacity, remove_array);
         }
 
         public ArrayObjectPoolContext<T> AllocArray(int size, bool arraySizeMatch = true)

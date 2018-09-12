@@ -7,22 +7,25 @@ namespace CaptainLib.Collections
     public class LimitedList<T> : List<T>
     {
 
-        public LimitedList(int limit)
+        public LimitedList(int limit, Action<T> remove)
             : base()
         {
             _limit = limit;
+            _remove = remove ?? (o => { });
         }
 
-        public LimitedList(IEnumerable<T> collection, int limit)
+        public LimitedList(IEnumerable<T> collection, int limit, Action<T> remove)
             : base(collection)
         {
             _limit = limit;
+            _remove = remove ?? (o => { });
         }
 
-        public LimitedList(int capacity, int limit)
+        public LimitedList(int capacity, int limit, Action<T> remove)
             : base(capacity)
         {
             _limit = limit;
+            _remove = remove ?? (o => { });
         }
 
 
@@ -46,12 +49,13 @@ namespace CaptainLib.Collections
             var cnt = Count + amount;
             while (cnt > _limit)
             {
+                _remove(this[0]);
                 RemoveAt(0);
                 --cnt;
             }
         }
 
         private int _limit;
-
+        private readonly Action<T> _remove;
     }
 }
