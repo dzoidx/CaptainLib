@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-#if NETSTANDARD1_3 || NET45
+#if NETSTANDARD1_3 || NET45 || NET_4_6
 using System.Threading.Tasks;
 #endif
 using System.Diagnostics;
