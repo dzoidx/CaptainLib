@@ -37,6 +37,8 @@ namespace CaptainLib.Collections
 
         public bool Invalidate(Key k)
         {
+            if (!_cache.ContainsKey(k))
+                return false;
             if (_cache[k].Data is IDisposable)
                 (_cache[k].Data as IDisposable).Dispose();
             return _cache.Remove(k);
