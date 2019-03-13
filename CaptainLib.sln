@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Numbers.Tests", "Numbers.Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{70218865-D0EA-4A6F-94C1-7D1177D9789E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaptainLib", "CaptainLib\CaptainLib.csproj", "{9F3ACB9A-1814-4773-87CB-7A2B89D59D32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaptainLib", "CaptainLib\CaptainLib.csproj", "{9F3ACB9A-1814-4773-87CB-7A2B89D59D32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections.Tests", "Collections.Tests\Collections.Tests.csproj", "{B34D0A35-7EAC-4E5E-BF3A-7F3731835400}"
 EndProject

@@ -1,14 +1,14 @@
 ﻿using System;
-#if NETSTANDARD1_0
+#if NETSTANDARD1_3 || NET45
 using System.Threading.Tasks;
 #endif
 
 namespace CaptainLib.Threading
 {
-    static class Extensions
+    public static class Extensions
     {
 
-#if NETSTANDARD1_0
+#if NETSTANDARD1_3 || NET45
         public static Task HandleError(this Task task, Action<Exception> callback)
         {
             return 

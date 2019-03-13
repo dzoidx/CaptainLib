@@ -2,9 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
+using CaptainLib.Collections;
+using CaptainLib.Threading;
 
 namespace Sandbox
 {
+    class Dummy : IDisposable
+    {
+        Guid id = Guid.NewGuid();
+        public Dummy()
+        {
+            Console.WriteLine($"{id} ctor.");
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine($"{id} dispose.");
+        }
+    }
+
     class Program
     {
         static Dictionary<string, Action<string[]>> _commands = new Dictionary<string, Action<string[]>>();
@@ -26,6 +43,10 @@ namespace Sandbox
 
         static void Main(string[] args)
         {
+            var l = new LimitedQueue<Dummy>(1, d => d.Dispose());
+            l.Enqueue(new Dummy());
+            l.Enqueue(new Dummy());
+            l.Enqueue(new Dummy());
             Console.WriteLine("showcase [name]");
             Console.WriteLine("Available showcases:");
             ListShowcases();

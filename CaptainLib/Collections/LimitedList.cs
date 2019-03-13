@@ -7,6 +7,11 @@ namespace CaptainLib.Collections
     public class LimitedList<T> : List<T>
     {
 
+        public LimitedList(int limit)
+        :this(limit, null)
+        {
+        }
+
         public LimitedList(int limit, Action<T> remove)
             : base()
         {
